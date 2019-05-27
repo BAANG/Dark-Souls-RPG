@@ -1,10 +1,8 @@
-#asagi {
-    width: 106px;
-    height: 154px;
-    background-image: url(../images/asagiassets.png);
-    animation: play 3s steps(6) infinite;
+img {
+    position: absolute;
+    bottom: 0;
 }
 
-@keyframes play {
-    100% {background-position-x: -614px}
+#character-select {
+    height: 200px;
 }
