@@ -16,7 +16,8 @@
 }
 
 .charBtn.select { /*must add select class to charBtn to utilize new animation */
-    animation: slide-fwd-center 1s;
+    animation: slide-fwd-center 1s, puff-out-center 2s;
+    animation-fill-mode: forwards;
 }
 
 .charBtn.deselect {
