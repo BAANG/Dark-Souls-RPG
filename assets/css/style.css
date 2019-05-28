@@ -91,6 +91,11 @@ content: attr(value)'/'attr(max);
     animation-fill-mode: forwards;
 }
 
+.spawn {
+    animation: slit-in-vertical 0.6s;
+    animation-fill-mode: forwards;
+}
+
 #playerChar.attack {
     animation: wobble-hor-bottom 0.6s;
 }
@@ -101,5 +106,15 @@ content: attr(value)'/'attr(max);
 
 .death {
     animation: puff-out-center 1s;
+    animation-fill-mode: forwards;
+}
+
+#battleText1.slide {
+    animation: slide-in-left 0.5s;
+    animation-fill-mode: forwards;
+}
+
+#battleText2.slide {
+    animation: slide-in-right 0.5s;
     animation-fill-mode: forwards;
 }

@@ -40,8 +40,11 @@ spawnChar = function() {
     
     player = charArray[i];
     console.log(player);
+
+    $("#battleText1").html("<h4>" +player.name+ "</h4>")
     
     $("#playerChar").attr("src", imgArray[i]);
+    $("#playerChar").addClass("spawn");
     
     $("#playerCut").attr("src", cutArray[i]); 
     $("#playerCut").addClass("enter");
@@ -66,8 +69,11 @@ spawnEnemy = function () {
    
     enemy = charArray[i];
     console.log(enemy);
+
+    $("#battleText2").html("<h4>" +enemy.name+ "</h4>")
     
     $("#enemyChar").attr("src", imgArray[i]);
+    $("#enemyChar").addClass("spawn");
     $("#enemyChar").removeClass("death");
     
     $("#enemyCut").attr("src", cutArray[i]);
@@ -105,8 +111,10 @@ damagePhase = function(){
     enemy.hp -= player.ap //hp calculation
     player.hp -= enemy.cp
     
-    $("#battleText1").html(player.name + " attacks for <b>" + player.ap + "</b> damage!")
-    $("#battleText2").html(enemy.name + " counters for <b>" + enemy.cp + "</b> damage!")
+    $("#battleText1").addClass("slide");
+    $("#battleText2").addClass("slide");
+    $("#battleText1").html(player.name + " attacks for <b>" + player.ap + "</b> damage!");
+    $("#battleText2").html(enemy.name + " counters for <b>" + enemy.cp + "</b> damage!");
 
     $("#playerHealth").attr("value", player.hp);
     $("#enemyHealth").attr("value", enemy.hp);
@@ -131,7 +139,13 @@ damagePhase = function(){
 
 animationReset = function() {
     $("#playerChar").removeClass("attack");
+    $("#playerChar").removeClass("spawn");
+    
     $("#enemyChar").removeClass("attack");
+    $("#enemyChar").removeClass("spawn");
+
+    $("#battleText1").removeClass("slide");
+    $("#battleText2").removeClass("slide");
 }
 
 // Win/Lose Conditions
