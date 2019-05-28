@@ -14,6 +14,7 @@ var enemyPicked = false;
 var isAlive = true;
 var enemyIsAlive = true;
 var enemiesLeft = 3;
+var roundNumber = 0;
 
 
 // Character Sheets & Constructor (using object protoypes)
@@ -190,6 +191,8 @@ cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
     $("#splash").on("click", function(){
         setTimeout(splashScreen, 2200);
         $("#splash").addClass("fade");
+        $("#game").css("visibility", "visible");
+        $("#game").addClass("start");
         
     });
 
@@ -201,6 +204,7 @@ cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
                     $(this).addClass("select");
                     spawnChar();
                     charPicked = true;
+                    $("#character-select-prompt").text("Choose your opponent...")
                 }
             }  
         } else if (enemyPicked === false) { //after character has been picked, if enemy has NOT been picked
@@ -210,6 +214,8 @@ cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
                     spawnEnemy();
                     enemyPicked = true;
                     enemyIsAlive = true;
+                    roundNumber ++;
+                    $("#character-select-prompt").html("Round " + roundNumber)
                 }
             }
         }   
