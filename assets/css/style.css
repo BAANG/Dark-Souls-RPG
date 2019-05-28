@@ -62,6 +62,13 @@ progress {
     position: absolute;
     top: 0px;
     visibility: hidden;
+    text-align: center;
+    height: 24px;
+    background-color: green;
+}
+
+progress:after {
+content: attr(value)'/'attr(max);
 }
 
 #playerCut.enter {

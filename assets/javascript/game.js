@@ -106,6 +106,9 @@ damagePhase = function(){
     $("#battleText1").text(player.name + " attacks for " + player.ap + " damage!")
     $("#battleText2").text(enemy.name + " counters for " + enemy.cp + " damage!")
 
+    $("#playerHealth").attr("value", player.hp);
+    $("#enemyHealth").attr("value", enemy.hp);
+
     if (player.hp > 0) {
         isAlive = true;
         player.ap += player.ap
