@@ -11,7 +11,7 @@
 }
 
 .charBtn:hover {
-    animation: shadow-drop-2-center 2s;
+    animation: shadow-drop-2-center 1s;
     animation-fill-mode: forwards;
 }
 
