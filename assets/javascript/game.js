@@ -36,6 +36,26 @@ spawnChar = function() {
     $("#playerChar").attr("ap", apArray[i]);
     $("#playerChar").attr("cp", cpArray[i]);
     $("#playerChar").attr("src", imgArray[i]);
+
+    charArray.splice(i, 1);
+    hpArray.splice(i, 1);
+    apArray.splice(i, 1);
+    cpArray.splice(i, 1);
+    imgArray.splice(i, 1);
+}
+
+spawnEnemy = function () {
+    $("#enemyChar").attr("name", charArray[i]);
+    $("#enemyChar").attr("hp", hpArray[i]);
+    $("#enemyChar").attr("ap", apArray[i]);
+    $("#enemyChar").attr("cp", cpArray[i]);
+    $("#enemyChar").attr("src", imgArray[i]);
+
+    charArray.splice(i, 1);
+    hpArray.splice(i, 1);
+    apArray.splice(i, 1);
+    cpArray.splice(i, 1);
+    imgArray.splice(i, 1);
 }
 
 // Load Character Information
@@ -60,17 +80,21 @@ imgArray.push(asagi.src, bloodis.src, laharl.src, prinny.src)
     $(".charBtn").on("click", function() {
         if (charPicked === false) {
             for (i = 0; i < charArray.length; i++) {      
-                if (charArray[i] === this.name){
+                if (charArray[i] === this.name) {
                     $(this).addClass("select");
-                    console.log(this.src);
                     spawnChar();
-                    charArray.splice(i, 1);
-                    console.log(charArray);
                     charPicked = true;
-                    console.log(charPicked);
                 }
             }  
-        }    
+        } else if (enemyPicked === false) {
+            for (i = 0; i < charArray.length; i++) {
+                if (charArray[i] === this.name) {
+                    $(this).addClass("select");
+                    spawnEnemy();
+                    enemyPicked = true;
+                }
+            }
+        }   
     })
 
 });
