@@ -11,6 +11,10 @@ var imgArray = [];
 var cutArray = [];
 var charPicked = false;
 var enemyPicked = false;
+var isAlive = true;
+var enemyIsAlive = true;
+var enemiesLeft = 3;
+
 
 // Character Sheets & Constructor (using object protoypes)
 
@@ -92,7 +96,25 @@ $("#bloodis").attr(bloodis)
 $("#laharl").attr(laharl)
 $("#prinny").attr(prinny)
 
+// Battle Functions
+
+damagePhase = function(){
+    if (player.hp > 0) {
+        isAlive = true;
+        player.ap += player.ap
+    } else if (player.hp <= 0) {
+        isAlive = false;
+    }
+    if (enemy.hp > 0) {
+        enemyIsAlive = true;
+    } else if (enemy.hp <= 0) {
+        enemyIsAlive = false;
+    }
+}
+
+
 // On Page Load
+
 
 $(document).ready(function () {
 
@@ -134,6 +156,16 @@ cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
            console.log(enemy.hp)
            player.hp -= enemy.cp
            console.log(player.hp)
+           damagePhase();
+           //hp bar update (place in damageCheck)
+           if (isAlive === false) {
+                $("#user-control").text("Try again?")
+           } else if (enemyIsAlive === false) {
+                //animate enemyChar death
+                enemyPicked = false;
+                enemiesLeft = 2;
+                //loop enemy selection
+           }
         }
     });
 
