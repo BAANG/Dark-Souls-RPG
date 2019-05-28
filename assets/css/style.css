@@ -1,6 +1,9 @@
-img {
+.charBtn {
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
+    margin: 0 auto;
+    border-radius: 30px;
+
 }
 
 #character-select {
@@ -37,9 +40,13 @@ img {
 #playerCut {
     position: absolute;
     left: 0px;
+    bottom: 0px;
+    z-index: 1;
 }
 
 #enemyCut {
     position: absolute;
     right: 0px;
+    bottom: 0px;
+    z-index: 1;
 }

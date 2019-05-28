@@ -21,7 +21,7 @@ puff-out // death animation
 
 /**
  * ----------------------------------------
- * animation flip-scale-2-hor-top
+ * animation flip-scale-2-hor-top 
  * ----------------------------------------
  */
  @-webkit-keyframes flip-scale-2-hor-top {
@@ -67,7 +67,7 @@ puff-out // death animation
 
 /**
  * ----------------------------------------
- * animation slide-top
+ * animation slide-top [DESELECT CHARACTER]
  * ----------------------------------------
  */
 @-webkit-keyframes slide-top {
@@ -93,7 +93,7 @@ puff-out // death animation
 
 /**
  * ----------------------------------------
- * animation shadow-drop-2-center
+ * animation shadow-drop-2-center [CHARACTER HOVER]
  * ----------------------------------------
  */
 @-webkit-keyframes shadow-drop-2-center {
@@ -123,7 +123,7 @@ puff-out // death animation
 
 /**
  * ----------------------------------------
- * animation flicker-2
+ * animation flicker-2 [TAKE DAMAGE]
  * ----------------------------------------
  */
 @-webkit-keyframes flicker-2 {
@@ -213,7 +213,7 @@ puff-out // death animation
 
 /**
  * ----------------------------------------
- * animation wobble-hor-bottom
+ * animation wobble-hor-bottom [ATTACK ANIMATION]
  * ----------------------------------------
  */
 @-webkit-keyframes wobble-hor-bottom {
@@ -277,7 +277,7 @@ puff-out // death animation
 
 /**
  * ----------------------------------------
- * animation puff-out-center
+ * animation puff-out-center [DEATH ANIMATION]
  * ----------------------------------------
  */
 @-webkit-keyframes puff-out-center {
@@ -315,7 +315,7 @@ puff-out // death animation
 
 /**
  * ----------------------------------------
- * animation slide-fwd-center
+ * animation slide-fwd-center [CHARACTER SELECT]
  * ----------------------------------------
  */
 @-webkit-keyframes slide-fwd-center {
@@ -340,7 +340,7 @@ puff-out // death animation
 }
 /**
 -----------------------------------------
-animation tracking-in-expand-fwd-bottom
+animation tracking-in-expand-fwd-bottom [USE FOR WIN/LOSE CONFIRMATION]
 -----------------------------------------
 */
 .tracking-in-expand-fwd-bottom {
