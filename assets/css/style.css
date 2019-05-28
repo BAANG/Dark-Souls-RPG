@@ -1,4 +1,26 @@
+#splash {
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    color: whitesmoke;
+    text-align: center;
+    padding-top: 5%;
+    background-image: url(../images/splash.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position-y: -80px;
+    z-index: 2;
+}
 
+.kenburns {
+    animation: kenburns-bottom 12s reverse both;
+    animation-fill-mode: backwards;
+}
+
+#press-start {
+    margin: 450px 0px;
+    animation: blink-1 3s infinite both;
+}
 
 .charBtn {
     position: absolute;
@@ -116,5 +138,10 @@ content: attr(value)'/'attr(max);
 
 #battleText2.slide {
     animation: slide-in-right 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.fade {
+    animation: fade-out-fwd 2s;
     animation-fill-mode: forwards;
 }

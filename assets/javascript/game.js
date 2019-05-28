@@ -167,6 +167,10 @@ checkWin = function () {
     }
 }
 
+splashScreen = function() {
+    $("#splash").remove();
+}
+
 
 
 
@@ -181,6 +185,13 @@ apArray.push(asagi.ap, bloodis.ap, laharl.ap, prinny.ap)
 cpArray.push(asagi.cp, bloodis.cp, laharl.cp, prinny.cp)
 imgArray.push(asagi.src, bloodis.src, laharl.src, prinny.src)
 cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
+
+    // Event Listener (Splash Screen)
+    $("#splash").on("click", function(){
+        setTimeout(splashScreen, 2200);
+        $("#splash").addClass("fade");
+        
+    });
 
     // Event Listener (Choose Characters)
     $(".charBtn").on("click", function() {
