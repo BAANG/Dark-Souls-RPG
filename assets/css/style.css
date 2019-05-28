@@ -1,3 +1,5 @@
+
+
 .charBtn {
     position: absolute;
     bottom: 0px;
@@ -62,6 +64,12 @@ progress {
     visibility: hidden;
 }
 
-progress.show {
-    visibility: visible;
+#playerCut.enter {
+    animation: slide-in-top 1s;
+    animation-fill-mode: forwards;
+}
+
+#enemyCut.enter {
+    animation: slide-in-bottom 1s;
+    animation-fill-mode: forwards;
 }
