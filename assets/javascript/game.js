@@ -79,6 +79,7 @@ spawnEnemy = function () {
         value: hpArray[i],
         max: hpArray[i],
     });
+    $("#enemyHealth").removeClass("death")
     
     $("#enemyHealth").css("visibility", "visible");
     
@@ -133,6 +134,27 @@ animationReset = function() {
     $("#enemyChar").removeClass("attack");
 }
 
+// Win/Lose Conditions
+
+checkWin = function () {
+    if (!isAlive) {
+        $("#playerChar").addClass("death")
+        $("#user-control").text("Try again?")
+        //trigger you lose screen
+    } else if (!enemyIsAlive) {
+        $("#enemyChar").addClass("death")
+        $("#enemyHealth").addClass("death")
+        enemyPicked = false;
+        enemiesLeft--;
+        console.log(enemiesLeft);
+        if (enemiesLeft === 0) {
+            //trigger you win screen
+        }
+    }
+}
+
+
+
 
 // On Page Load
 
@@ -177,13 +199,7 @@ cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
            damagePhase();
            console.log("Enemy HP: " + enemy.hp)
            console.log("Player HP: " + player.hp)
-           if (isAlive === false) {
-                $("#user-control").text("Try again?")
-           } else if (enemyIsAlive === false) {
-                $("#enemyChar").addClass("death")
-                enemyPicked = false;
-                enemiesLeft--;
-           }
+           checkWin ();
         }
     });
 

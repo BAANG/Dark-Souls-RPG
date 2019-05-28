@@ -96,7 +96,7 @@ content: attr(value)'/'attr(max);
 }
 
 #enemyChar.attack{
-    animation: flicker-2 0.8s;
+    animation: shake-horizontal 0.5s;
 }
 
 .death {
