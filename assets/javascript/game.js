@@ -71,10 +71,8 @@ spawnEnemy = function () {
     
     $("#enemyCut").attr("src", cutArray[i]);
     $("#enemyCut").addClass("enter");
+    $("#enemyCut").removeClass("exit");
 
-    if (enemiesLeft === 2) {
-        $("#enemyCut").addClass("enter2")
-    }
     
     $("#enemyHealth").attr({
         value: hpArray[i],
@@ -120,6 +118,7 @@ damagePhase = function(){
     if (enemy.hp > 0) {
         enemyIsAlive = true;
     } else if (enemy.hp <= 0) {
+        $("#enemyCut").removeClass("enter")
         $("#enemyCut").addClass("exit")
         enemyIsAlive = false;
     }

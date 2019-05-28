@@ -90,8 +90,3 @@ content: attr(value)'/'attr(max);
     animation: slide-out-top 1s;
     animation-fill-mode: forwards;
 }
-
-#enemyCut.enter2 {
-    animation: slide-in-bottom 1s;
-    animation-fill-mode: forwards;
-}
