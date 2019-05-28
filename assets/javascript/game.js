@@ -34,13 +34,10 @@ console.log(charArray)
 
 spawnChar = function() {
     
-    $("#playerChar").attr({
-        name: charArray[i].name,
-        hp: hpArray[i],
-        ap: apArray[i],
-        cp: cpArray[i],
-        src: imgArray[i]
-    });
+    player = charArray[i];
+    console.log(player);
+    
+    $("#playerChar").attr("src", imgArray[i]);
     
     $("#playerCut").attr("src", cutArray[i]);
     
@@ -53,8 +50,6 @@ spawnChar = function() {
     
     $("#playerHealth").css("visibility", "visible");
     
-    player = charArray[i];
-    console.log(player);
 
     charArray.splice(i, 1);
     hpArray.splice(i, 1);
@@ -65,14 +60,11 @@ spawnChar = function() {
 }
 
 spawnEnemy = function () {
+   
+    enemy = charArray[i];
+    console.log(enemy);
     
-    $("#enemyChar").attr({
-        name: charArray[i].name,
-        hp: hpArray[i],
-        ap: apArray[i],
-        cp: cpArray[i],
-        src: imgArray[i],
-    });
+    $("#enemyChar").attr("src", imgArray[i]);
     
     $("#enemyCut").attr("src", cutArray[i]);
     
@@ -85,9 +77,6 @@ spawnEnemy = function () {
     
     $("#enemyHealth").css("visibility", "visible");
     
-    enemy = charArray[i];
-    console.log(enemy);
-
     charArray.splice(i, 1);
     hpArray.splice(i, 1);
     apArray.splice(i, 1);
@@ -141,8 +130,10 @@ cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
     //Event Listener (Control Button functionality)
     $("#user-control").on("click", function() { 
         if (charPicked && enemyPicked) {
-           console.log(player)
-           console.log(enemy)
+           enemy.hp -= player.ap
+           console.log(enemy.hp)
+           player.hp -= enemy.cp
+           console.log(player.hp)
         }
     });
 
