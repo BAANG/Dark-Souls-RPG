@@ -6,3 +6,16 @@ img {
 #character-select {
     height: 200px;
 }
+
+.charBtn:hover {
+    animation: shadow-drop-2-center 2s;
+    animation-fill-mode: forwards;
+}
+
+.charBtn.select { /*must add select class to charBtn to utilize new animation */
+    animation: slide-fwd-center 1s;
+}
+
+.charBtn.deselect {
+    animation: slide-top 1s;
+}
