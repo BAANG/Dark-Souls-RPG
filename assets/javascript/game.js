@@ -31,11 +31,24 @@ console.log(charArray)
 // Create Player/Enemy Cards
 
 spawnChar = function() {
-    $("#playerChar").attr("name", charArray[i]);
-    $("#playerChar").attr("hp", hpArray[i]);
-    $("#playerChar").attr("ap", apArray[i]);
-    $("#playerChar").attr("cp", cpArray[i]);
-    $("#playerChar").attr("src", imgArray[i]);
+    // $("#playerChar").attr("name", charArray[i]);
+    // $("#playerChar").attr("hp", hpArray[i]);
+    // $("#playerChar").attr("ap", apArray[i]);
+    // $("#playerChar").attr("cp", cpArray[i]);
+    // $("#playerChar").attr("src", imgArray[i]);
+
+    $("#playerChar").attr({
+        name: charArray[i],
+        hp: hpArray[i],
+        ap: apArray[i],
+        cp: cpArray[i],
+        src: imgArray[i]
+    });
+    
+    $("#playerHealth").attr({
+        value: hpArray[i],
+        max: hpArray[i]
+    });
 
     charArray.splice(i, 1);
     hpArray.splice(i, 1);
@@ -45,11 +58,24 @@ spawnChar = function() {
 }
 
 spawnEnemy = function () {
-    $("#enemyChar").attr("name", charArray[i]);
-    $("#enemyChar").attr("hp", hpArray[i]);
-    $("#enemyChar").attr("ap", apArray[i]);
-    $("#enemyChar").attr("cp", cpArray[i]);
-    $("#enemyChar").attr("src", imgArray[i]);
+    // $("#enemyChar").attr("name", charArray[i]);
+    // $("#enemyChar").attr("hp", hpArray[i]);
+    // $("#enemyChar").attr("ap", apArray[i]);
+    // $("#enemyChar").attr("cp", cpArray[i]);
+    // $("#enemyChar").attr("src", imgArray[i]);
+
+    $("#enemyChar").attr({
+        name: charArray[i],
+        hp: hpArray[i],
+        ap: apArray[i],
+        cp: cpArray[i],
+        src: imgArray[i]
+    });
+
+    $("#enemyHealth").attr({
+        value: hpArray[i],
+        max: hpArray[i]
+    });
 
     charArray.splice(i, 1);
     hpArray.splice(i, 1);

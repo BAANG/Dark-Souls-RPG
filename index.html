@@ -36,8 +36,14 @@
         <div class="col-2"><img id="enemyChar" src="" hp="" ap="" cp="" name="" /></div>
       </div>
       <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-2">
+          <progress id="playerHealth" value=0 max=100></progress>
+        </div>
+        <div class="col-8 text-center">
           <button type="button" class="btn btn-dark btn-lg" id="user-control">Attack</button>
+        </div>
+        <div class="col-2">
+          <progress id="enemyHealth" value=0 max=100></progress>
         </div>
       </div>
     </div>

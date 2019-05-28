@@ -5,6 +5,10 @@
     border-radius: 30px;
 
 }
+#playerChar, #enemyChar {
+    position: absolute;
+    bottom: 0px;
+}
 
 #character-select {
     height: 200px;
@@ -50,4 +54,10 @@
     right: 0px;
     bottom: 0px;
     z-index: 1;
+}
+
+progress {
+    position: absolute;
+    top: 0px;
+    /* visibility: hidden; */
 }
