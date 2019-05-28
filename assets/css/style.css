@@ -19,3 +19,11 @@ img {
 .charBtn.deselect {
     animation: slide-top 1s;
 }
+
+#battle-stage {
+    height: 120px;
+}
+
+#battleText {
+    text-align: center;
+}
