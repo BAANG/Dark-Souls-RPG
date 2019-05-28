@@ -90,3 +90,7 @@ content: attr(value)'/'attr(max);
     animation: slide-out-top 1s;
     animation-fill-mode: forwards;
 }
+
+.attack {
+    animation: wobble-hor-bottom 0.6s;
+}

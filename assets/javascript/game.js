@@ -27,10 +27,10 @@ function character(charName, healthPoints, atkPwr, counterAtk, charSprite, cutPo
     this.cut = cutPortrait;
 };
 
-var asagi = new character("Asagi", 100, 30, 15, "assets/images/asagi.gif", "assets/images/asagicut.png");
-var bloodis = new character("Bloodis", 250, 10, 5, "assets/images/bloodis.gif", "assets/images/bloodiscut.png");
-var laharl = new character("Laharl", 120, 25, 15, "assets/images/laharl.gif", "assets/images/laharlcut.png");
-var prinny = new character("Prinny", 500, 1, 50, "assets/images/prinny.gif", "assets/images/prinnycut.png");
+var asagi = new character("<b>Asagi</b>, <small>Sniper of Demons</small>", 100, 30, 15, "assets/images/asagi.gif", "assets/images/asagicut.png");
+var bloodis = new character("<b>Bloodis</b>, <small>Great Demon Fist</small>", 250, 10, 5, "assets/images/bloodis.gif", "assets/images/bloodiscut.png");
+var laharl = new character("<b>Laharl</b>, <small>Demon Overlord</small>", 120, 25, 15, "assets/images/laharl.gif", "assets/images/laharlcut.png");
+var prinny = new character("<b>Prinny</b>, <small>Worthless Soul</small>", 500, 1, 50, "assets/images/prinny.gif", "assets/images/prinnycut.png");
 
 console.log(charArray)
 
@@ -46,7 +46,7 @@ spawnChar = function() {
     $("#playerCut").attr("src", cutArray[i]); 
     $("#playerCut").addClass("enter");
     
-    $("#playerHealth").attr({
+    $("#playerHealth").attr({ //checks and prints health values
         value: hpArray[i],
         max: hpArray[i],
     });
@@ -103,25 +103,33 @@ damagePhase = function(){
     enemy.hp -= player.ap //hp calculation
     player.hp -= enemy.cp
     
-    $("#battleText1").text(player.name + " attacks for " + player.ap + " damage!")
-    $("#battleText2").text(enemy.name + " counters for " + enemy.cp + " damage!")
+    $("#battleText1").html(player.name + " attacks for <b>" + player.ap + "</b> damage!")
+    $("#battleText2").html(enemy.name + " counters for <b>" + enemy.cp + "</b> damage!")
 
     $("#playerHealth").attr("value", player.hp);
     $("#enemyHealth").attr("value", enemy.hp);
 
     if (player.hp > 0) {
         isAlive = true;
-        player.ap += player.ap
+        player.ap += player.ap;
+        $("#playerChar").addClass("attack");
     } else if (player.hp <= 0) {
         isAlive = false;
     }
     if (enemy.hp > 0) {
         enemyIsAlive = true;
+        $("#enemyChar").addClass("attack");        
     } else if (enemy.hp <= 0) {
         $("#enemyCut").removeClass("enter")
         $("#enemyCut").addClass("exit")
         enemyIsAlive = false;
     }
+    setTimeout(animationReset, 600);
+}
+
+animationReset = function() {
+    $("#playerChar").removeClass("attack");
+    $("#enemyChar").removeClass("attack");
 }
 
 
@@ -153,6 +161,7 @@ cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
                     $(this).addClass("select");
                     spawnEnemy();
                     enemyPicked = true;
+                    enemyIsAlive = true;
                 }
             }
         }   
@@ -167,14 +176,12 @@ cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
            damagePhase();
            console.log("Enemy HP: " + enemy.hp)
            console.log("Player HP: " + player.hp)
-           //hp bar update (place in damageCheck)
            if (isAlive === false) {
                 $("#user-control").text("Try again?")
            } else if (enemyIsAlive === false) {
                 //animate enemyChar death
                 enemyPicked = false;
                 enemiesLeft--;
-                //loop enemy selection
            }
         }
     });
