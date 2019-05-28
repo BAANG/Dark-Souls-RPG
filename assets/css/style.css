@@ -27,3 +27,19 @@ img {
 #battleText {
     text-align: center;
 }
+
+#characterText {
+    position: static;
+    bottom: 0px;
+    margin: 0;
+}
+
+#playerCut {
+    position: absolute;
+    left: 0px;
+}
+
+#enemyCut {
+    position: absolute;
+    right: 0px;
+}
