@@ -91,6 +91,15 @@ content: attr(value)'/'attr(max);
     animation-fill-mode: forwards;
 }
 
-.attack {
+#playerChar.attack {
     animation: wobble-hor-bottom 0.6s;
+}
+
+#enemyChar.attack{
+    animation: flicker-2 0.8s;
+}
+
+.death {
+    animation: puff-out-center 1s;
+    animation-fill-mode: forwards;
 }

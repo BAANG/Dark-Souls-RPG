@@ -68,6 +68,7 @@ spawnEnemy = function () {
     console.log(enemy);
     
     $("#enemyChar").attr("src", imgArray[i]);
+    $("#enemyChar").removeClass("death");
     
     $("#enemyCut").attr("src", cutArray[i]);
     $("#enemyCut").addClass("enter");
@@ -179,7 +180,7 @@ cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
            if (isAlive === false) {
                 $("#user-control").text("Try again?")
            } else if (enemyIsAlive === false) {
-                //animate enemyChar death
+                $("#enemyChar").addClass("death")
                 enemyPicked = false;
                 enemiesLeft--;
            }
