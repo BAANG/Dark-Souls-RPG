@@ -1,8 +1,8 @@
 
 
 //  Variables
-var playerChar;
-var enemyChar;
+var player;
+var enemy;
 var charArray = [];
 var hpArray = [];
 var apArray = [];
@@ -33,30 +33,28 @@ console.log(charArray)
 // Create Player/Enemy Cards
 
 spawnChar = function() {
-    // $("#playerChar").attr("name", charArray[i]);
-    // $("#playerChar").attr("hp", hpArray[i]);
-    // $("#playerChar").attr("ap", apArray[i]);
-    // $("#playerChar").attr("cp", cpArray[i]);
-    // $("#playerChar").attr("src", imgArray[i]);
-
+    
     $("#playerChar").attr({
-        name: charArray[i],
+        name: charArray[i].name,
         hp: hpArray[i],
         ap: apArray[i],
         cp: cpArray[i],
         src: imgArray[i]
     });
-
+    
     $("#playerCut").attr("src", cutArray[i]);
-
+    
     $("#playerCut").addClass("enter");
     
     $("#playerHealth").attr({
         value: hpArray[i],
         max: hpArray[i],
     });
-
+    
     $("#playerHealth").css("visibility", "visible");
+    
+    player = charArray[i];
+    console.log(player);
 
     charArray.splice(i, 1);
     hpArray.splice(i, 1);
@@ -67,30 +65,28 @@ spawnChar = function() {
 }
 
 spawnEnemy = function () {
-    // $("#enemyChar").attr("name", charArray[i]);
-    // $("#enemyChar").attr("hp", hpArray[i]);
-    // $("#enemyChar").attr("ap", apArray[i]);
-    // $("#enemyChar").attr("cp", cpArray[i]);
-    // $("#enemyChar").attr("src", imgArray[i]);
-
+    
     $("#enemyChar").attr({
-        name: charArray[i],
+        name: charArray[i].name,
         hp: hpArray[i],
         ap: apArray[i],
         cp: cpArray[i],
         src: imgArray[i],
     });
-
+    
     $("#enemyCut").attr("src", cutArray[i]);
     
     $("#enemyCut").addClass("enter");
-
+    
     $("#enemyHealth").attr({
         value: hpArray[i],
         max: hpArray[i],
     });
-
+    
     $("#enemyHealth").css("visibility", "visible");
+    
+    enemy = charArray[i];
+    console.log(enemy);
 
     charArray.splice(i, 1);
     hpArray.splice(i, 1);
@@ -111,33 +107,43 @@ $("#prinny").attr(prinny)
 
 $(document).ready(function () {
 
-charArray.push(asagi.name, bloodis.name, laharl.name, prinny.name) //// adds characters to selection pool
+charArray.push(asagi, bloodis, laharl, prinny) //// adds characters to selection pool
 hpArray.push(asagi.hp, bloodis.hp, laharl.hp, prinny.hp)
 apArray.push(asagi.ap, bloodis.ap, laharl.ap, prinny.ap)
 cpArray.push(asagi.cp, bloodis.cp, laharl.cp, prinny.cp)
 imgArray.push(asagi.src, bloodis.src, laharl.src, prinny.src)
 cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
 
-    // Event Listener (Click Character Button)
-    
+    // Event Listener (Choose Characters)
     $(".charBtn").on("click", function() {
-        if (charPicked === false) {
+        if (charPicked === false) { // if character has NOT been picked
             for (i = 0; i < charArray.length; i++) {      
-                if (charArray[i] === this.name) {
+                if (charArray[i].name === this.name) {
                     $(this).addClass("select");
                     spawnChar();
                     charPicked = true;
                 }
             }  
-        } else if (enemyPicked === false) {
+        } else if (enemyPicked === false) { //after character has been picked, if enemy has NOT been picked
             for (i = 0; i < charArray.length; i++) {
-                if (charArray[i] === this.name) {
+                if (charArray[i].name === this.name) {
                     $(this).addClass("select");
                     spawnEnemy();
                     enemyPicked = true;
                 }
             }
         }   
+    
+    
     })
+
+
+    //Event Listener (Control Button functionality)
+    $("#user-control").on("click", function() { 
+        if (charPicked && enemyPicked) {
+           console.log(player)
+           console.log(enemy)
+        }
+    });
 
 });
