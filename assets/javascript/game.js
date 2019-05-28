@@ -163,7 +163,7 @@ checkWin = function () {
         enemiesLeft--;
         console.log(enemiesLeft);
         if (enemiesLeft === 0) {
-            //trigger you win screen
+            //trigger you win
         }
     }
 }

@@ -2,6 +2,10 @@
     visibility: hidden;
 }
 
+.jumbotron {
+    color: whitesmoke;
+}
+
 .start{
     animation: puff-in-center 3s;
     animation-fill-mode: forwards;
@@ -103,22 +107,22 @@ content: attr(value)'/'attr(max);
 }
 
 #playerCut.enter {
-    animation: slide-in-top 1s;
+    animation: slide-in-top 0.8s;
     animation-fill-mode: forwards;
 }
 
 #playerCut.exit  {
-    animation: slide-out-bottom 1s;
+    animation: slide-out-bottom 0.8s;
     animation-fill-mode: forwards;
 }
 
 #enemyCut.enter {
-    animation: slide-in-bottom 1s;
+    animation: slide-in-bottom 0.8s;
     animation-fill-mode: forwards;
 }
 
 #enemyCut.exit {
-    animation: slide-out-top 1s;
+    animation: slide-out-top 0.8s;
     animation-fill-mode: forwards;
 }
 
