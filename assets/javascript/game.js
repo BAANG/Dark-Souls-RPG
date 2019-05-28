@@ -9,6 +9,7 @@ var apArray = [];
 var cpArray = [];
 var imgArray = [];
 var cutArray = [];
+var baseAP;
 var charPicked = false;
 var enemyPicked = false;
 var isAlive = true;
@@ -41,6 +42,8 @@ spawnChar = function() {
     
     player = charArray[i];
     console.log(player);
+
+    baseAP = player.ap; //sets base attack
 
     $("#battleText1").html("<h4>" +player.name+ "</h4>")
     
@@ -122,7 +125,7 @@ damagePhase = function(){
 
     if (player.hp > 0) {
         isAlive = true;
-        player.ap += player.ap;
+        player.ap += baseAP;
         $("#playerChar").addClass("attack");
     } else if (player.hp <= 0) {
         isAlive = false;
@@ -133,6 +136,9 @@ damagePhase = function(){
     } else if (enemy.hp <= 0) {
         $("#enemyCut").removeClass("enter")
         $("#enemyCut").addClass("exit")
+
+        $("#battleText2").append("<br>" + enemy.name + " has been <b>DEFEATED</b>!")
+
         enemyIsAlive = false;
     }
     setTimeout(animationReset, 600);
@@ -155,7 +161,6 @@ checkWin = function () {
     if (!isAlive) {
         $("#playerChar").addClass("death")
         $("#user-control").text("Try again?")
-        //trigger you lose screen
     } else if (!enemyIsAlive) {
         $("#enemyChar").addClass("death")
         $("#enemyHealth").addClass("death")
@@ -163,16 +168,68 @@ checkWin = function () {
         enemiesLeft--;
         console.log(enemiesLeft);
         if (enemiesLeft === 0) {
-            //trigger you win
         }
     }
 }
+
+// Remove Splash Screen (to use with setTimeout for event timing)
 
 splashScreen = function() {
     $("#splash").remove();
 }
 
+// Reset Game Animation
 
+resetVFX = function () {
+    $("#game").removeClass("death");
+    $("#game").addClass("start");
+}
+
+// Reset Game Function
+
+resetGame = function () {
+    $("#game").removeClass("start");
+    $("#game").addClass("death");
+    
+    charArray = [];
+    hpArray = [];
+    apArray = [];
+    cpArray = [];
+    imgArray = [];
+    cutArray = [];
+    charPicked = false;
+    enemyPicked = false;
+    isAlive = true;
+    enemyIsAlive = true;
+    enemiesLeft = 3;
+    roundNumber = 0;
+
+asagi = new character("<b>Asagi</b>, <small>Sniper of Demons</small>", 100, 30, 15, "assets/images/asagi.gif", "assets/images/asagicut.png");
+bloodis = new character("<b>Bloodis</b>, <small>Great Demon Fist</small>", 250, 10, 5, "assets/images/bloodis.gif", "assets/images/bloodiscut.png");
+laharl = new character("<b>Laharl</b>, <small>Demon Overlord</small>", 120, 25, 15, "assets/images/laharl.gif", "assets/images/laharlcut.png");
+prinny = new character("<b>Prinny</b>, <small>Worthless Soul</small>", 500, 1, 50, "assets/images/prinny.gif", "assets/images/prinnycut.png");
+
+    charArray.push(asagi, bloodis, laharl, prinny) //// Reload arrays for character selection
+    hpArray.push(asagi.hp, bloodis.hp, laharl.hp, prinny.hp)
+    apArray.push(asagi.ap, bloodis.ap, laharl.ap, prinny.ap)
+    cpArray.push(asagi.cp, bloodis.cp, laharl.cp, prinny.cp)
+    imgArray.push(asagi.src, bloodis.src, laharl.src, prinny.src)
+    cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
+
+    $(".charBtn").removeClass("select") // Reload character select sprites
+    $("#character-select-prompt").text("Choose your character...")
+    $("#playerCut").attr("src", "")
+    $("#enemyCut").attr("src", "")
+    $("#playerCut").removeClass("enter")
+    $("#enemyCut").removeClass("enter")
+    $("#enemyChar").attr("src", "")
+    $("#playerChar").attr("src", "")
+    $("#playerHealth").attr("style", "visibility: hidden")
+    $("#enemyHealth").attr("style", "visibility: hidden")
+    $("#battleText1").empty()
+    $("#battleText2").empty()
+    $("#user-control").text("Attack")
+}
 
 
 // On Page Load
@@ -226,12 +283,15 @@ cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
 
     //Event Listener (Control Button functionality)
     $("#user-control").on("click", function() { 
-        if (charPicked && enemyPicked) {
+        if (!isAlive || enemiesLeft === 0) {
+            resetGame();
+        } else if (charPicked && enemyPicked) {
            damagePhase();
            console.log("Enemy HP: " + enemy.hp)
            console.log("Player HP: " + player.hp)
            checkWin ();
-        }
+        } 
+        
     });
 
 });
