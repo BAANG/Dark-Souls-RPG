@@ -47,8 +47,10 @@ spawnChar = function() {
     
     $("#playerHealth").attr({
         value: hpArray[i],
-        max: hpArray[i]
+        max: hpArray[i],
     });
+
+    $("#playerHealth").css("visibility", "visible");
 
     charArray.splice(i, 1);
     hpArray.splice(i, 1);
@@ -74,8 +76,10 @@ spawnEnemy = function () {
 
     $("#enemyHealth").attr({
         value: hpArray[i],
-        max: hpArray[i]
+        max: hpArray[i],
     });
+
+    $("#enemyHealth").css("visibility", "visible");
 
     charArray.splice(i, 1);
     hpArray.splice(i, 1);
