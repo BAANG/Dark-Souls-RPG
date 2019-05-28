@@ -43,8 +43,7 @@ spawnChar = function() {
     
     $("#playerChar").attr("src", imgArray[i]);
     
-    $("#playerCut").attr("src", cutArray[i]);
-    
+    $("#playerCut").attr("src", cutArray[i]); 
     $("#playerCut").addClass("enter");
     
     $("#playerHealth").attr({
@@ -71,8 +70,11 @@ spawnEnemy = function () {
     $("#enemyChar").attr("src", imgArray[i]);
     
     $("#enemyCut").attr("src", cutArray[i]);
-    
     $("#enemyCut").addClass("enter");
+
+    if (enemiesLeft === 2) {
+        $("#enemyCut").addClass("enter2")
+    }
     
     $("#enemyHealth").attr({
         value: hpArray[i],
@@ -118,6 +120,7 @@ damagePhase = function(){
     if (enemy.hp > 0) {
         enemyIsAlive = true;
     } else if (enemy.hp <= 0) {
+        $("#enemyCut").addClass("exit")
         enemyIsAlive = false;
     }
 }
@@ -171,7 +174,7 @@ cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
            } else if (enemyIsAlive === false) {
                 //animate enemyChar death
                 enemyPicked = false;
-                enemiesLeft = 2;
+                enemiesLeft--;
                 //loop enemy selection
            }
         }

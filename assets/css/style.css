@@ -76,7 +76,22 @@ content: attr(value)'/'attr(max);
     animation-fill-mode: forwards;
 }
 
+#playerCut.exit  {
+    animation: slide-out-bottom 1s;
+    animation-fill-mode: forwards;
+}
+
 #enemyCut.enter {
+    animation: slide-in-bottom 1s;
+    animation-fill-mode: forwards;
+}
+
+#enemyCut.exit {
+    animation: slide-out-top 1s;
+    animation-fill-mode: forwards;
+}
+
+#enemyCut.enter2 {
     animation: slide-in-bottom 1s;
     animation-fill-mode: forwards;
 }
