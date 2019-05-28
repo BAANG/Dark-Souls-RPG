@@ -99,6 +99,13 @@ $("#prinny").attr(prinny)
 // Battle Functions
 
 damagePhase = function(){
+   
+    enemy.hp -= player.ap //hp calculation
+    player.hp -= enemy.cp
+    
+    $("#battleText1").text(player.name + " attacks for " + player.ap + " damage!")
+    $("#battleText2").text(enemy.name + " counters for " + enemy.cp + " damage!")
+
     if (player.hp > 0) {
         isAlive = true;
         player.ap += player.ap
@@ -152,11 +159,9 @@ cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
     //Event Listener (Control Button functionality)
     $("#user-control").on("click", function() { 
         if (charPicked && enemyPicked) {
-           enemy.hp -= player.ap
-           console.log(enemy.hp)
-           player.hp -= enemy.cp
-           console.log(player.hp)
            damagePhase();
+           console.log("Enemy HP: " + enemy.hp)
+           console.log("Player HP: " + player.hp)
            //hp bar update (place in damageCheck)
            if (isAlive === false) {
                 $("#user-control").text("Try again?")
