@@ -2,6 +2,11 @@ body {
     overflow: hidden;
 }
 
+p{
+    position: relative;
+    left: 10px;
+}
+
 
 h4 {
     font-family: 'Montserrat', sans-serif;
@@ -17,6 +22,7 @@ audio {
 
 #game {
     visibility: hidden;
+    height: 100%;
 }
 
 .jumbotron {
@@ -37,7 +43,7 @@ audio {
     padding-top: 5%;
     background-image: url(../images/splash.jpg);
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
     background-position-y: -80px;
     z-index: 2;
 }
@@ -88,12 +94,14 @@ audio {
 
 #battleText {
     text-align: center;
+    overflow-x: visible;
 }
 
 #characterText {
     position: static;
-    bottom: 0px;
-    margin: 0;
+    bottom: -50px;
+    margin-bottom: 0;
+    margin-top: 120px;
 }
 
 #playerCut {
@@ -192,6 +200,12 @@ content: attr(value)'/'attr(max);
     background-color: black;
 }
 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
 /* start of desktop style */
 
 @media screen and (max-width:1800px) {
@@ -224,6 +238,41 @@ content: attr(value)'/'attr(max);
     }
 }
 
+@media screen and (max-width:1366px) {
+    #character-select {
+        width: 600px;
+        margin: 0 auto;
+    }
+    #battle-stage {
+        width: 600px;
+        margin: 0 auto;
+    }
+    #userInterface {
+        width: 600px;
+        margin: 0 auto;
+    }
+    .cutIn {
+        max-height: 1024px;
+    }
+}
+
+@media screen and (max-width:1280px) {
+    #character-select {
+        width: 580px;
+        margin: 0 auto;
+    }
+    #battle-stage {
+        width: 580px;
+        margin: 0 auto;
+    }
+    #userInterface {
+        width: 580px;
+        margin: 0 auto;
+    }
+    .cutIn {
+        max-height: 850px;
+    }
+}
 
 @media screen and (max-width: 991px) {
     /* start of large tablet styles */
