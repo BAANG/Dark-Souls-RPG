@@ -1,3 +1,7 @@
+h4 {
+    font-family: 'Montserrat', sans-serif;
+}
+
 audio {
     position: fixed;
     bottom: 100px;
@@ -169,6 +173,10 @@ content: attr(value)'/'attr(max);
 .result {
     position: absolute;
     top: 30%;
-    left: 43%;
-    font-size: 60px;
+    left: 40%;
+    font-size: 120px;
+    font-family: 'Staatliches', cursive;
+    visibility: hidden;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: white;
 }

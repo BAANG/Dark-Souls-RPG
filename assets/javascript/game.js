@@ -166,6 +166,7 @@ checkWin = function () {
     if (!isAlive) {
         $("#playerChar").addClass("death")
         $("#user-control").text("Try again?")
+        $("#youLose").attr("style", "visibility: visible");
     } else if (!enemyIsAlive) {
         $("#enemyChar").addClass("death")
         $("#enemyHealth").addClass("death")
@@ -173,7 +174,8 @@ checkWin = function () {
         enemiesLeft--;
         console.log(enemiesLeft);
         if (enemiesLeft === 0) {
-            $("#user-control").text("Play again?")
+            $("#user-control").text("Play again?");
+            $("#youWin").attr("style", "visibility: visible");
         }
     }
 }
@@ -201,6 +203,8 @@ resetPage = function () {
     $("#playerChar").removeClass("death")
     $("#playerHealth").attr("style", "visibility: hidden")
     $("#enemyHealth").attr("style", "visibility: hidden")
+    $("#youWin").attr("style", "visibility: hidden")
+    $("#youLose").attr("style", "visibility: hidden")
     $("#battleText1").empty()
     $("#battleText2").empty()
     $("#user-control").text("Attack")
