@@ -165,3 +165,10 @@ content: attr(value)'/'attr(max);
     animation: fade-out-fwd 2s;
     animation-fill-mode: forwards;
 }
+
+.result {
+    position: absolute;
+    top: 30%;
+    left: 43%;
+    font-size: 60px;
+}
