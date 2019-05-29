@@ -14,10 +14,10 @@ h4 {
 
 audio {
     position: fixed;
-    bottom: 1%;
+    bottom: 5%;
     margin: 0 auto;
-    /* left: 43%; */
-    z-index: 1;
+    left: 42%;
+    z-index: 3;
 }
 
 #game {
