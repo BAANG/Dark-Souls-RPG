@@ -30,9 +30,9 @@ function character(charName, healthPoints, atkPwr, counterAtk, charSprite, cutPo
 };
 
 var asagi = new character("<b>Asagi</b>, <small>Sniper of Demons</small>", 100, 30, 15, "assets/images/asagi.gif", "assets/images/asagicut.png");
-var bloodis = new character("<b>Bloodis</b>, <small>Great Demon Fist</small>", 250, 10, 5, "assets/images/bloodis.gif", "assets/images/bloodiscut.png");
+var bloodis = new character("<b>Bloodis</b>, <small>Great Demon Fist</small>", 300, 10, 5, "assets/images/bloodis.gif", "assets/images/bloodiscut.png");
 var laharl = new character("<b>Laharl</b>, <small>Demon Overlord</small>", 120, 25, 15, "assets/images/laharl.gif", "assets/images/laharlcut.png");
-var prinny = new character("<b>Prinny</b>, <small>Worthless Soul</small>", 500, 1, 50, "assets/images/prinny.gif", "assets/images/prinnycut.png");
+var prinny = new character("<b>Prinny</b>, <small>Worthless Soul</small>", 250, 1, 20, "assets/images/prinny.gif", "assets/images/prinnycut.png");
 
 console.log(charArray)
 
@@ -44,6 +44,10 @@ spawnChar = function() {
     console.log(player);
 
     baseAP = player.ap; //sets base attack
+
+    if (player === prinny) {
+        player.ap += player.ap
+    }
 
     $("#battleText1").html("<h4>" +player.name+ "</h4>")
     
@@ -168,6 +172,7 @@ checkWin = function () {
         enemiesLeft--;
         console.log(enemiesLeft);
         if (enemiesLeft === 0) {
+            $("#user-control").text("Play again?")
         }
     }
 }
@@ -180,9 +185,24 @@ splashScreen = function() {
 
 // Reset Game Animation
 
-resetVFX = function () {
+resetPage = function () {
     $("#game").removeClass("death");
     $("#game").addClass("start");
+
+    $(".charBtn").removeClass("select")
+    $("#character-select-prompt").text("Choose your character...")
+    $("#playerCut").attr("src", "")
+    $("#enemyCut").attr("src", "")
+    $("#playerCut").removeClass("enter")
+    $("#enemyCut").removeClass("enter")
+    $("#enemyChar").attr("src", "")
+    $("#playerChar").attr("src", "")
+    $("#playerChar").removeClass("death")
+    $("#playerHealth").attr("style", "visibility: hidden")
+    $("#enemyHealth").attr("style", "visibility: hidden")
+    $("#battleText1").empty()
+    $("#battleText2").empty()
+    $("#user-control").text("Attack")
 }
 
 // Reset Game Function
@@ -205,9 +225,9 @@ resetGame = function () {
     roundNumber = 0;
 
 asagi = new character("<b>Asagi</b>, <small>Sniper of Demons</small>", 100, 30, 15, "assets/images/asagi.gif", "assets/images/asagicut.png");
-bloodis = new character("<b>Bloodis</b>, <small>Great Demon Fist</small>", 250, 10, 5, "assets/images/bloodis.gif", "assets/images/bloodiscut.png");
+bloodis = new character("<b>Bloodis</b>, <small>Great Demon Fist</small>", 300, 10, 5, "assets/images/bloodis.gif", "assets/images/bloodiscut.png");
 laharl = new character("<b>Laharl</b>, <small>Demon Overlord</small>", 120, 25, 15, "assets/images/laharl.gif", "assets/images/laharlcut.png");
-prinny = new character("<b>Prinny</b>, <small>Worthless Soul</small>", 500, 1, 50, "assets/images/prinny.gif", "assets/images/prinnycut.png");
+prinny = new character("<b>Prinny</b>, <small>Worthless Soul</small>", 250, 1, 50, "assets/images/prinny.gif", "assets/images/prinnycut.png");
 
     charArray.push(asagi, bloodis, laharl, prinny) //// Reload arrays for character selection
     hpArray.push(asagi.hp, bloodis.hp, laharl.hp, prinny.hp)
@@ -216,19 +236,7 @@ prinny = new character("<b>Prinny</b>, <small>Worthless Soul</small>", 500, 1, 5
     imgArray.push(asagi.src, bloodis.src, laharl.src, prinny.src)
     cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
 
-    $(".charBtn").removeClass("select") // Reload character select sprites
-    $("#character-select-prompt").text("Choose your character...")
-    $("#playerCut").attr("src", "")
-    $("#enemyCut").attr("src", "")
-    $("#playerCut").removeClass("enter")
-    $("#enemyCut").removeClass("enter")
-    $("#enemyChar").attr("src", "")
-    $("#playerChar").attr("src", "")
-    $("#playerHealth").attr("style", "visibility: hidden")
-    $("#enemyHealth").attr("style", "visibility: hidden")
-    $("#battleText1").empty()
-    $("#battleText2").empty()
-    $("#user-control").text("Attack")
+    setTimeout(resetPage, 1200)
 }
 
 
