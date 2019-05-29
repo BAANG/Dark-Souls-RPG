@@ -209,6 +209,11 @@ content: attr(value)'/'attr(max);
     display: table;
   }
 
+.pulse {
+    animation: pulsate-fwd 1s infinite both;
+
+}
+
 /* start of desktop style */
 
 @media screen and (max-width:1800px) {

@@ -151,6 +151,7 @@ damagePhase = function(){
         $("#enemyCut").removeClass("enter")
         $("#enemyCut").addClass("exit")
 
+        $("#character-select-prompt").html("Choose your opponent...<br>")
         $("#character-select-prompt").append("<br>" + enemy.name + " has been <b>DEFEATED</b>!")
 
         enemyIsAlive = false;
@@ -177,6 +178,7 @@ checkWin = function () {
         $("#playerHealth").addClass("death")
         $("#user-control").text("Try again?")
         $("#youLose").attr("style", "visibility: visible");
+        $("#youLose").addClass("pulse");
     } 
     
     if (!enemyIsAlive) {
@@ -188,6 +190,7 @@ checkWin = function () {
         if (enemiesLeft === 0) {
             $("#user-control").text("Play again?");
             $("#youWin").attr("style", "visibility: visible");
+            $("#youWin").addClass("pulse");
         }
     }
 }
@@ -220,6 +223,9 @@ resetPage = function () {
     $("#battleText1").empty()
     $("#battleText2").empty()
     $("#user-control").text("Attack")
+    $("#youLose").removeClass("pulse");
+    $("#youWin").removeClass("pulse");
+
 }
 
 // Reset Game Function
@@ -297,7 +303,7 @@ cutArray.push(asagi.cut, bloodis.cut, laharl.cut, prinny.cut)
                     enemyPicked = true;
                     enemyIsAlive = true;
                     roundNumber ++;
-                    $("#character-select-prompt").html("Round " + roundNumber)
+                    $("#character-select-prompt").html("Round " + roundNumber)        
                 }
             }
         }   
