@@ -31,7 +31,7 @@ function character(charName, healthPoints, atkPwr, counterAtk, charSprite, cutPo
 
 var asagi = new character("<b>Asagi</b>, <small>Sniper of Demons</small>", 100, 30, 15, "assets/images/asagi.gif", "assets/images/asagicut.png");
 var bloodis = new character("<b>Bloodis</b>, <small>Great Demon Fist</small>", 300, 10, 5, "assets/images/bloodis.gif", "assets/images/bloodiscut.png");
-var laharl = new character("<b>Laharl</b>, <small>Demon Overlord</small>", 120, 25, 15, "assets/images/laharl.gif", "assets/images/laharlcut.png");
+var laharl = new character("<b>Laharl</b>, <small>Demon Overlord</small>", 120, 25, 35, "assets/images/laharl.gif", "assets/images/laharlcut.png");
 var prinny = new character("<b>Prinny</b>, <small>Worthless Soul</small>", 250, 1, 20, "assets/images/prinny.gif", "assets/images/prinnycut.png");
 
 console.log(charArray)
@@ -227,7 +227,7 @@ resetGame = function () {
 
 asagi = new character("<b>Asagi</b>, <small>Sniper of Demons</small>", 100, 30, 15, "assets/images/asagi.gif", "assets/images/asagicut.png");
 bloodis = new character("<b>Bloodis</b>, <small>Great Demon Fist</small>", 300, 10, 5, "assets/images/bloodis.gif", "assets/images/bloodiscut.png");
-laharl = new character("<b>Laharl</b>, <small>Demon Overlord</small>", 120, 25, 15, "assets/images/laharl.gif", "assets/images/laharlcut.png");
+laharl = new character("<b>Laharl</b>, <small>Demon Overlord</small>", 120, 25, 35, "assets/images/laharl.gif", "assets/images/laharlcut.png");
 prinny = new character("<b>Prinny</b>, <small>Worthless Soul</small>", 250, 1, 20, "assets/images/prinny.gif", "assets/images/prinnycut.png");
 
     charArray.push(asagi, bloodis, laharl, prinny) //// Reload arrays for character selection
