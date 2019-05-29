@@ -45,10 +45,6 @@ spawnChar = function() {
 
     baseAP = player.ap; //sets base attack
 
-    if (player === prinny) {
-        player.ap += player.ap
-    }
-
     $("#battleText1").html("<h4>" +player.name+ "</h4>")
     
     $("#playerChar").attr("src", imgArray[i]);
@@ -130,6 +126,11 @@ damagePhase = function(){
     if (player.hp > 0) {
         isAlive = true;
         player.ap += baseAP;
+
+        if (player === prinny) {  // prinny OP
+            player.ap += (player.ap^2)
+        }
+
         $("#playerChar").addClass("attack");
     } else if (player.hp <= 0) {
         isAlive = false;
@@ -227,7 +228,7 @@ resetGame = function () {
 asagi = new character("<b>Asagi</b>, <small>Sniper of Demons</small>", 100, 30, 15, "assets/images/asagi.gif", "assets/images/asagicut.png");
 bloodis = new character("<b>Bloodis</b>, <small>Great Demon Fist</small>", 300, 10, 5, "assets/images/bloodis.gif", "assets/images/bloodiscut.png");
 laharl = new character("<b>Laharl</b>, <small>Demon Overlord</small>", 120, 25, 15, "assets/images/laharl.gif", "assets/images/laharlcut.png");
-prinny = new character("<b>Prinny</b>, <small>Worthless Soul</small>", 250, 1, 50, "assets/images/prinny.gif", "assets/images/prinnycut.png");
+prinny = new character("<b>Prinny</b>, <small>Worthless Soul</small>", 250, 1, 20, "assets/images/prinny.gif", "assets/images/prinnycut.png");
 
     charArray.push(asagi, bloodis, laharl, prinny) //// Reload arrays for character selection
     hpArray.push(asagi.hp, bloodis.hp, laharl.hp, prinny.hp)
