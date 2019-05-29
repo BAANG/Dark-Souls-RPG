@@ -68,6 +68,7 @@ audio {
 #playerChar, #enemyChar {
     position: absolute;
     bottom: 0px;
+    z-index: 2;
 }
 
 #character-select {
@@ -125,6 +126,7 @@ progress {
     text-align: center;
     height: 24px;
     background-color: green;
+    z-index: 2;
 }
 
 progress:after {
@@ -198,6 +200,7 @@ content: attr(value)'/'attr(max);
 .cutIn {
     padding-top: auto;
     background-color: black;
+    max-height: 135vh
 }
 
 .clearfix::after {
@@ -251,9 +254,6 @@ content: attr(value)'/'attr(max);
         width: 600px;
         margin: 0 auto;
     }
-    .cutIn {
-        max-height: 1024px;
-    }
 }
 
 @media screen and (max-width:1280px) {
@@ -268,9 +268,6 @@ content: attr(value)'/'attr(max);
     #userInterface {
         width: 580px;
         margin: 0 auto;
-    }
-    .cutIn {
-        max-height: 850px;
     }
 }
 
@@ -288,9 +285,7 @@ content: attr(value)'/'attr(max);
         width: 550px;
         margin: 0 auto;
     }
-    .cutIn {
-        max-height: 630px;
-    }
+}
     
     @media screen and (max-width: 767px) {
     /* start of medium tablet styles */
@@ -306,6 +301,4 @@ content: attr(value)'/'attr(max);
         width: 520px;
         margin: 0 auto;
     }
-    .cutIn {
-        max-height: 420px;
-    }
+}
