@@ -49,14 +49,17 @@ spawnChar = function() {
     
     $("#playerChar").attr("src", imgArray[i]);
     $("#playerChar").addClass("spawn");
+    $("#playerChar").removeClass("death");
     
     $("#playerCut").attr("src", cutArray[i]); 
     $("#playerCut").addClass("enter");
+    $("#playerCut").removeClass("exit");
     
     $("#playerHealth").attr({ //checks and prints health values
         value: hpArray[i],
         max: hpArray[i],
     });
+    $("#playerHealth").removeClass("death")
     
     $("#playerHealth").css("visibility", "visible");
     
@@ -133,6 +136,12 @@ damagePhase = function(){
 
         $("#playerChar").addClass("attack");
     } else if (player.hp <= 0) {
+        $("#playerCut").removeClass("enter")
+        $("#playerCut").addClass("exit")
+
+        
+        $("#battleText1").append("<br>" + player.name + " has been <b>DEFEATED</b>!")
+        
         isAlive = false;
     }
     if (enemy.hp > 0) {
@@ -165,9 +174,12 @@ animationReset = function() {
 checkWin = function () {
     if (!isAlive) {
         $("#playerChar").addClass("death")
+        $("#playerHealth").addClass("death")
         $("#user-control").text("Try again?")
         $("#youLose").attr("style", "visibility: visible");
-    } else if (!enemyIsAlive) {
+    } 
+    
+    if (!enemyIsAlive) {
         $("#enemyChar").addClass("death")
         $("#enemyHealth").addClass("death")
         enemyPicked = false;

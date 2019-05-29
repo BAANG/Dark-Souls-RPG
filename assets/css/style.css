@@ -1,11 +1,17 @@
+body {
+    overflow: hidden;
+}
+
+
 h4 {
     font-family: 'Montserrat', sans-serif;
 }
 
 audio {
     position: fixed;
-    bottom: 100px;
-    left: 42%;
+    bottom: 1%;
+    margin: 0 auto;
+    /* left: 43%; */
     z-index: 1;
 }
 
@@ -91,16 +97,16 @@ audio {
 }
 
 #playerCut {
-    position: absolute;
+    position: fixed;
     left: 0px;
-    bottom: 0px;
+    top: 0px;
     z-index: 1;
 }
 
 #enemyCut {
-    position: absolute;
+    position: fixed;
     right: 0px;
-    bottom: 0px;
+    top: 0px;
     z-index: 1;
 }
 
@@ -181,8 +187,9 @@ content: attr(value)'/'attr(max);
     -webkit-text-stroke-color: white;
 }
 
-.cutIn{
-    max-height: 100%
+.cutIn {
+    padding-top: auto;
+    background-color: black;
 }
 
 /* start of desktop style */
@@ -211,7 +218,7 @@ content: attr(value)'/'attr(max);
         width: 700px;
         margin: 0 auto;
     }
-    #userInterface{
+    #userInterface {
         width: 700px;
         margin: 0 auto;
     }
