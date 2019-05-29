@@ -140,7 +140,7 @@ damagePhase = function(){
         $("#playerCut").addClass("exit")
 
         
-        $("#battleText1").append("<br>" + player.name + " has been <b>DEFEATED</b>!")
+        $("#character-select-prompt").append("<br>" + player.name + " has been <b>DEFEATED</b>!")
         
         isAlive = false;
     }
@@ -151,7 +151,7 @@ damagePhase = function(){
         $("#enemyCut").removeClass("enter")
         $("#enemyCut").addClass("exit")
 
-        $("#battleText2").append("<br>" + enemy.name + " has been <b>DEFEATED</b>!")
+        $("#character-select-prompt").append("<br>" + enemy.name + " has been <b>DEFEATED</b>!")
 
         enemyIsAlive = false;
     }

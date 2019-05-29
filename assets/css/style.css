@@ -99,9 +99,9 @@ audio {
 
 #characterText {
     position: static;
-    bottom: -50px;
+    bottom: -2%;
     margin-bottom: 0;
-    margin-top: 120px;
+    margin-top: 2%;
 }
 
 #playerCut {
@@ -277,38 +277,35 @@ content: attr(value)'/'attr(max);
 @media screen and (max-width: 991px) {
     /* start of large tablet styles */
     #character-select {
-
+        width: 550px;
+        margin: 0 auto;
     }
     #battle-stage {
-
+        width: 550px;
+        margin: 0 auto;
     }
     #userInterface{
-        
-
+        width: 550px;
+        margin: 0 auto;
+    }
+    .cutIn {
+        max-height: 630px;
     }
     
     @media screen and (max-width: 767px) {
     /* start of medium tablet styles */
     #character-select {
-
+        width: 520px;
+        margin: 0 auto;
     }
     #battle-stage {
-
+        width: 520px;
+        margin: 0 auto;
     }
     #userInterface{
-        
-
+        width: 520px;
+        margin: 0 auto;
     }
-    
-    @media screen and (max-width: 479px) {
-    /* start of phone styles */
-    #character-select {
-
-    }
-    #battle-stage {
-
-    }
-    #userInterface{
-        
-
+    .cutIn {
+        max-height: 420px;
     }
