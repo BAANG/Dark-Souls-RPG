@@ -1,11 +1,11 @@
 # Disgaea-RPG
 
-This is a Disgaea-themed game made with Javascript and the jQuery library as an assignment for the UC Berkeley Coding Bootcamp.
+This is a game made with Javascript and the jQuery library as an assignment for the UC Berkeley Coding Bootcamp. Creating this game required extensive knowledge in Javascript and jQuery in order to call multiple functions, time events, store, track and reset numerous variables and trigger differnt events for different scenarios within the game.
 
-![Screenshot of Splash](https://via.placeholder.com/300x200)
-![Screenshot of Game](https://via.placeholder.com/300x200)
+In terms of the UI and presentation of my game, I heavily relied on CSS keyframes and jQuery to dynamically add and remove classes to different elements. By constantly adding and removing different classes linked to animations, I was able to seamlessly remove and reveal my visual assets per what the game needed.
 
-<!-- optimally add gifs of both pages functioning -->
+<img src="assets\images\screen1.PNG" width="50%">
+<img src="assets\images\screen2.PNG" width="50%">
 
 ___
 

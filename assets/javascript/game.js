@@ -36,9 +36,17 @@ var prinny = new character("<b>Prinny</b>, <small>Worthless Soul</small>", 250, 
 
 console.log(charArray)
 
+var audio = $("#hover")[0];
+$(".charBtn").mouseenter(function() {
+  audio.play();
+});
+
 // Create Player/Enemy Cards
 
 spawnChar = function() {
+
+    var audio = $("#woosh")[0]; //audio trigger for character choice
+            audio.play();
     
     player = charArray[i];
     console.log(player);
@@ -73,6 +81,9 @@ spawnChar = function() {
 }
 
 spawnEnemy = function () {
+
+    var audio = $("#woosh")[0]; //audio trigger for character choice
+            audio.play();
    
     enemy = charArray[i];
     console.log(enemy);
@@ -114,6 +125,8 @@ $("#prinny").attr(prinny)
 // Battle Functions
 
 damagePhase = function(){
+    var audio = $("#attack")[0]; //audio trigger for attack
+        audio.play();
    
     enemy.hp -= player.ap //hp calculation
     player.hp -= enemy.cp
@@ -139,8 +152,10 @@ damagePhase = function(){
         $("#playerCut").removeClass("enter")
         $("#playerCut").addClass("exit")
 
-        
         $("#character-select-prompt").append("<br>" + player.name + " has been <b>DEFEATED</b>!")
+
+        var audio = $("#death")[0]; //audio trigger for death
+            audio.play();
         
         isAlive = false;
     }
@@ -153,6 +168,9 @@ damagePhase = function(){
 
         $("#character-select-prompt").html("Choose your opponent...<br>")
         $("#character-select-prompt").append("<br>" + enemy.name + " has been <b>DEFEATED</b>!")
+
+        var audio = $("#death")[0]; //audio trigger for death
+            audio.play();
 
         enemyIsAlive = false;
     }
